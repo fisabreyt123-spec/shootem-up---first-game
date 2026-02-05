@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnk8csewsx4i8"]
+[gd_scene load_steps=5 format=3 uid="uid://dnk8csewsx4i8"]
 
 [ext_resource type="Script" uid="uid://dvmkn71h8e0qt" path="res://player.gd" id="1_24d08"]
+[ext_resource type="Script" uid="uid://c3g0vjgb5o4kc" path="res://root.gd" id="1_170dk"]
 [ext_resource type="Texture2D" uid="uid://dow7uc76gtsuw" path="res://Sprites/Turret_P.png" id="2_170dk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwqeq"]
 
 [node name="Root" type="Node2D"]
+script = ExtResource("1_170dk")
+point_1 = null
+point_2 = null
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(576, 324)
