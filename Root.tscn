@@ -1,13 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnk8csewsx4i8"]
+[gd_scene load_steps=4 format=3 uid="uid://dnk8csewsx4i8"]
 
 [ext_resource type="Script" uid="uid://dvmkn71h8e0qt" path="res://player.gd" id="1_24d08"]
 [ext_resource type="Texture2D" uid="uid://dow7uc76gtsuw" path="res://Sprites/Turret_P.png" id="2_170dk"]
-[ext_resource type="Script" uid="uid://camph1rlhilnw" path="res://bullet.gd" id="3_cwqeq"]
-[ext_resource type="Texture2D" uid="uid://bqiiqgklla2xu" path="res://Sprites/Bullet_P.png" id="4_3ipfy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cwqeq"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g0d6c"]
 
 [node name="Root" type="Node2D"]
 
@@ -25,18 +21,4 @@ scale = Vector2(10, 10)
 texture = ExtResource("2_170dk")
 
 [node name="Muzzle" type="Marker2D" parent="Player"]
-position = Vector2(70, 0)
-
-[node name="Bullet" type="Area2D" parent="."]
-position = Vector2(30, 100)
-script = ExtResource("3_cwqeq")
-
-[node name="Sprite2D" type="Sprite2D" parent="Bullet"]
-texture_filter = 1
-scale = Vector2(3, 3)
-texture = ExtResource("4_3ipfy")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
-rotation = 1.5707964
-scale = Vector2(1.5, 1.5)
-shape = SubResource("CapsuleShape2D_g0d6c")
+position = Vector2(72, 0)
