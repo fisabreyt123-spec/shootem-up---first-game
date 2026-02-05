@@ -4,7 +4,7 @@ var bullet_path=preload("res://bullet.tscn")
 #Mouse-following movement function + Shoot command
 func _physics_process(delta):
 	look_at(get_global_mouse_position())
-	if (Input.is_action_just_pressed("shoot")):
+	if (Input.is_action_pressed("shoot")):
 		fire()
 	
 
