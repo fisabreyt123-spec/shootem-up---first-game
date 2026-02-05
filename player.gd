@@ -1,7 +1,8 @@
 extends CharacterBody2D
 var bullet_path=preload("res://bullet.tscn")
 var start = true
-var max_time = 0.3
+var max_time = 0.35
+#using max_time = 0.3 with buffs that will be added later
 var current_time = 0
 
 
