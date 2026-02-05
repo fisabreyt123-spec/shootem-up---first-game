@@ -10,4 +10,7 @@ func _ready():
 
 func _physics_process(delta: float):
 	velocity=Vector2(speed, 0).rotated(dir)
-	move_and_slide()
+	var collision_info = move_and_collide(velocity * delta)
+	if collision_info:
+		print("Collision hit")
+		queue_free()
