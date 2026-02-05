@@ -6,7 +6,7 @@ extends Node2D
 #endregion
 
 #region Spawning enemy part 1 : Saving the enemy Blueprint
-@onready var enemy_bp: Ressource = preload("res://enemy.tscn")
+@onready var enemy_bp: Resource = preload("res://enemy.tscn")
 
 #region rnd spawn pos part 2 : create Rnd function that will give a rnd pos in the scene
 func get_random_point_inside(p1: Vector2, p2: Vector2) -> Vector2:
