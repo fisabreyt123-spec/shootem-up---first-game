@@ -8,8 +8,6 @@
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_170dk")
-point_1 = null
-point_2 = null
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(576, 324)

@@ -9,11 +9,12 @@ var current_time = 0
 #Mouse-following movement function + Shoot command
 func _physics_process(delta):
 	look_at(get_global_mouse_position())
+	current_time += delta
 	if (Input.is_action_pressed("shoot")):
 		if start == true:
 			fire()
 			start = false
-		current_time += delta
+
 		print(current_time)
 		if current_time > max_time and start == false:
 			fire()

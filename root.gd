@@ -1,5 +1,8 @@
 extends Node2D
 
+var max_time = 5
+var current_time = 0
+
 #region Rnd spawn pos part 1 : define two points
 @export var point_1: Vector2 = Vector2(50, 50)
 @export var point_2: Vector2 = Vector2(1100, 600)
@@ -7,6 +10,7 @@ extends Node2D
 
 #region Spawning enemy part 1 : Saving the enemy Blueprint
 @onready var enemy_bp: Resource = preload("res://enemy.tscn")
+#endregion
 
 #region rnd spawn pos part 2 : create Rnd function that will give a rnd pos in the scene
 func get_random_point_inside(p1: Vector2, p2: Vector2) -> Vector2:
@@ -16,13 +20,25 @@ func get_random_point_inside(p1: Vector2, p2: Vector2) -> Vector2:
 	var random_point_inside: Vector2 = Vector2(x_value, y_value)
 	
 	return(random_point_inside)
+#region Spawning enemy part 2 : create the function
+func spawn_enemy():
+	var enemy_instance: Node = enemy_bp.instantiate()
+	add_child(enemy_instance)
+	
+	#space to add further code here : the enemy "can" spawn IN the player so we will do a while loop to avoid that
+	
+	var spawn_location: Vector2 = get_random_point_inside(point_1, point_2)
+	enemy_instance.set_position(spawn_location)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	randomize()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	current_time += delta
+	if current_time > max_time:
+		spawn_enemy()
+		current_time = 0
