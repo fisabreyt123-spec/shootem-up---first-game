@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Bullet
 var pos:Vector2
 var rota:float
 var dir:float
@@ -10,9 +11,6 @@ func _ready():
 
 
 
-func _physics_process(delta: float):
+func _physics_process(_delta: float):
 	velocity=Vector2(speed, 0).rotated(dir)
-	var collision_info = move_and_collide(velocity * delta)
-	if collision_info:
-		print("Collision hit")
-		queue_free()
+	move_and_slide()

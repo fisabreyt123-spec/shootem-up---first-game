@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 var bullet_path=preload("res://bullet.tscn")
 var start = true
-var max_time = 0.35
+var max_time = 0.3
 #using max_time = 0.3 with buffs that will be added later
 var current_time = 0
 var player_location: Vector2 = Vector2(576.0, 324.0)
@@ -14,12 +14,13 @@ func _ready() -> void:
 #Mouse-following movement function + Shoot command
 func _physics_process(delta):
 	look_at(get_global_mouse_position())
+	
+	
 	current_time += delta
 	if (Input.is_action_pressed("shoot")):
 		if start == true:
 			fire()
 			start = false
-
 		print(current_time)
 		if current_time > max_time and start == false:
 			fire()
@@ -34,6 +35,4 @@ func fire():
 	bullet.pos=$Muzzle.global_position
 	bullet.rota=global_rotation
 	get_parent().add_child(bullet)
-
-		
-		
+	
