@@ -23,3 +23,6 @@ func _on_body_entered(body: Node2D) -> void:
 		print("hit by bullet")
 		queue_free()
 		body.queue_free()
+	else :
+		print("hit by player")
+		#body.queue_free()

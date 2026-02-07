@@ -1,6 +1,6 @@
 extends Node2D
 
-var max_time = 5
+var max_time = 1.5
 var current_time = 0
 var player_location: Vector2 = Vector2(576.0, 324.0)
 

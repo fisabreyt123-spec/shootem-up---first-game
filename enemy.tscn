@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dfv3yte64jvrf"]
 
 [ext_resource type="Texture2D" uid="uid://dx0ayplbxcg7x" path="res://Sprites/Enemy_P.png" id="1_7k104"]
-[ext_resource type="Script" uid="uid://camph1rlhilnw" path="res://area_2d.gd" id="3_qi2p4"]
+[ext_resource type="Script" uid="uid://camph1rlhilnw" path="res://enemy.gd" id="3_qi2p4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4gyqm"]
 
