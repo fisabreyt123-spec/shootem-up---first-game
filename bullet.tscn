@@ -12,6 +12,7 @@ scale = Vector2(4, 4)
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_v8qja")
+speed = 350
 
 [node name="BulletP" type="Sprite2D" parent="."]
 texture_filter = 1

@@ -3,7 +3,7 @@ class_name Bullet
 var pos:Vector2
 var rota:float
 var dir:float
-var speed= 200
+@export var speed= 200
 
 func _ready():
 	global_position=pos
