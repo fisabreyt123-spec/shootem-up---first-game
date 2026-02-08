@@ -3,6 +3,11 @@ extends Node2D
 var max_time = 3
 var current_time = 0
 
+var is_timer_on = false
+
+var enemy_counter = 0
+@export var enemy_wave_limit = 10
+
 #region Rnd spawn pos part 1 : define two points
 @export var point_1: Vector2 = Vector2(0, 0)
 @export var point_2: Vector2 = Vector2(1100, 600)
@@ -29,7 +34,7 @@ func spawn_enemy():
 	while spawn_location.x > 50 and spawn_location.x < 1050 and spawn_location.y > 50 and spawn_location.y < 550 :
 		randomize()
 		spawn_location = get_random_point_inside(point_1, point_2)
-		print("Enemy position rerolled")
+	
 	
 	enemy_instance.set_position(spawn_location)
 	
@@ -45,11 +50,26 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	max_time = randf_range(1, 5)
 	current_time += delta
-	if current_time > max_time:
+	if current_time > max_time and enemy_counter < enemy_wave_limit:
 		spawn_enemy()
 		current_time = 0
+		enemy_counter+=1
+		print(enemy_counter)
+	if enemy_counter == enemy_wave_limit:
+		is_timer_on = true
+		if is_timer_on :
+			%Timer.start()
+			is_timer_on = false
+			enemy_counter+=1 #the take here is to break out of the condition so the timer starts only one time
+		print(%Timer.time_left)
+
 
 
 func _on_player_player_deplected() -> void:
 	%GameOver.visible = true
 	get_tree().paused = true
+
+
+func _on_timer_timeout() -> void:
+		%"Stage Win".visible = true
+		get_tree().paused = true
