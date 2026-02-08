@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 signal player_deplected
 
+
+var can_fire = true
 var bullet_path=preload("res://bullet.tscn")
 var start = true
 var max_time = 0.3
@@ -30,14 +32,18 @@ func _physics_process(delta):
 	
 
 func fire():
-	var bullet=bullet_path.instantiate()
-	bullet.dir=rotation
-	bullet.pos=$Muzzle.global_position
-	bullet.rota=global_rotation
-	get_parent().add_child(bullet)
+	if can_fire:
+		var bullet=bullet_path.instantiate()
+		bullet.dir=rotation
+		bullet.pos=$Muzzle.global_position
+		bullet.rota=global_rotation
+		get_parent().add_child(bullet)
 	
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	player_deplected.emit()
 	print("player dead")
+	hide()
+	can_fire = false
+	

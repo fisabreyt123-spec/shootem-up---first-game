@@ -9,4 +9,33 @@ script = ExtResource("1_170dk")
 [node name="Player" parent="." instance=ExtResource("2_24d08")]
 position = Vector2(576, 324)
 
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3882353)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -87.99994
+offset_top = -44.0
+offset_right = -0.99993896
+offset_bottom = -21.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.0070112, 3.5200827)
+text = "Game Over"
+
 [connection signal="player_deplected" from="Player" to="." method="_on_player_player_deplected"]

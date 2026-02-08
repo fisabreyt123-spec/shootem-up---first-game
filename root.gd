@@ -39,14 +39,11 @@ func spawn_enemy():
 func _ready() -> void:
 	randomize()
 
-func gameover() :
-	print("Game Over")
-	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	max_time = randf_range(2, 5)
+	max_time = randf_range(1, 5)
 	current_time += delta
 	if current_time > max_time:
 		spawn_enemy()
@@ -54,4 +51,5 @@ func _process(delta: float) -> void:
 
 
 func _on_player_player_deplected() -> void:
-	gameover()
+	%GameOver.visible = true
+	get_tree().paused = true
