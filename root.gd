@@ -2,7 +2,6 @@ extends Node2D
 
 var max_time = 3
 var current_time = 0
-var player_location: Vector2 = Vector2(576.0, 324.0)
 
 #region Rnd spawn pos part 1 : define two points
 @export var point_1: Vector2 = Vector2(0, 0)
@@ -11,7 +10,6 @@ var player_location: Vector2 = Vector2(576.0, 324.0)
 
 #region Spawning enemy part 1 : Saving the enemy Blueprint
 @onready var enemy_bp: Resource = preload("res://enemy.tscn")
-@onready var player_bp: Resource = preload("res://player.tscn")
 #endregion
 
 #region rnd spawn pos part 2 : create Rnd function that will give a rnd pos in the scene
@@ -39,11 +37,11 @@ func spawn_enemy():
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var player_instance: Node = player_bp.instantiate()
-	player_instance.set_position(player_location)
-	add_child(player_instance)
 	randomize()
 
+func gameover() :
+	print("Game Over")
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -53,3 +51,7 @@ func _process(delta: float) -> void:
 	if current_time > max_time:
 		spawn_enemy()
 		current_time = 0
+
+
+func _on_player_player_deplected() -> void:
+	gameover()

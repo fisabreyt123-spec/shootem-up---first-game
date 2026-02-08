@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal player_deplected
+
 var bullet_path=preload("res://bullet.tscn")
 var start = true
 var max_time = 0.3
@@ -14,7 +16,6 @@ func _ready() -> void:
 #Mouse-following movement function + Shoot command
 func _physics_process(delta):
 	look_at(get_global_mouse_position())
-	
 	
 	current_time += delta
 	if (Input.is_action_pressed("shoot")):
@@ -35,3 +36,8 @@ func fire():
 	bullet.rota=global_rotation
 	get_parent().add_child(bullet)
 	
+
+
+func _on_hitbox_area_entered(area: Area2D) -> void:
+	player_deplected.emit()
+	print("player dead")
