@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://buw45rmec8g0g"]
+
+[ext_resource type="Texture2D" uid="uid://cdompe0877iok" path="res://Sprites/Turret_FBase.png" id="1_d4awt"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_d4awt")

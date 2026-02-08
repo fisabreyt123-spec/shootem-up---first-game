@@ -61,6 +61,7 @@ func _process(delta: float) -> void:
 			%Timer.start()
 			is_timer_on = false
 			enemy_counter+=1 #the take here is to break out of the condition so the timer starts only one time
+		print(%Timer.time_left)
 
 
 
