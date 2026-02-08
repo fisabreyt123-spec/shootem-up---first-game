@@ -21,7 +21,6 @@ func _physics_process(delta):
 		if start == true:
 			fire()
 			start = false
-		print(current_time)
 		if current_time > max_time and start == false:
 			fire()
 			current_time = 0

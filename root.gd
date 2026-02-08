@@ -5,14 +5,13 @@ var current_time = 0
 var player_location: Vector2 = Vector2(576.0, 324.0)
 
 #region Rnd spawn pos part 1 : define two points
-@export var point_1: Vector2 = Vector2(50, 50)
+@export var point_1: Vector2 = Vector2(0, 0)
 @export var point_2: Vector2 = Vector2(1100, 600)
 #endregion
 
 #region Spawning enemy part 1 : Saving the enemy Blueprint
 @onready var enemy_bp: Resource = preload("res://enemy.tscn")
 @onready var player_bp: Resource = preload("res://player.tscn")
-@onready var sz_bp: Resource = preload("res://starting_zone.tscn")
 #endregion
 
 #region rnd spawn pos part 2 : create Rnd function that will give a rnd pos in the scene
@@ -29,19 +28,17 @@ func spawn_enemy():
 	add_child(enemy_instance)
 	var spawn_location: Vector2 = get_random_point_inside(point_1, point_2)
 	
+	while spawn_location.x > 50 and spawn_location.x < 1050 and spawn_location.y > 50 and spawn_location.y < 550 :
+		randomize()
+		spawn_location = get_random_point_inside(point_1, point_2)
+		print("Enemy position rerolled")
+	
 	enemy_instance.set_position(spawn_location)
 	
-func spawn_sz():
-	var sz_instance: Node = sz_bp.instantiate()
-	add_child(sz_instance)
-	var spawn_location: Vector2 = player_location
-	
-	sz_instance.set_position(spawn_location)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	spawn_sz()
 	var player_instance: Node = player_bp.instantiate()
 	player_instance.set_position(player_location)
 	add_child(player_instance)
