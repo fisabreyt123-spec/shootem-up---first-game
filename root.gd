@@ -48,7 +48,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	max_time = randf_range(1, 5)
+	max_time = randf_range(0, 15)
 	current_time += delta
 	if current_time > max_time and enemy_counter < enemy_wave_limit:
 		spawn_enemy()

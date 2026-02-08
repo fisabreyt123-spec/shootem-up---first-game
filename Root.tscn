@@ -6,6 +6,7 @@
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_170dk")
+enemy_wave_limit = 100
 
 [node name="Player" parent="." instance=ExtResource("2_24d08")]
 position = Vector2(576, 324)
