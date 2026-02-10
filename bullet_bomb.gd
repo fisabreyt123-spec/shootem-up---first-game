@@ -1,9 +1,9 @@
 extends CharacterBody2D
-class_name Bullet_fast
+class_name Bullet_bomb
 var pos:Vector2
 var rota:float
 var dir:float
-@export var speed= 700
+@export var speed= 100
 
 func _ready():
 	global_position=pos

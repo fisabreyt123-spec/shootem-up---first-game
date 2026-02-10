@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpen2mjc8jg3e"]
+
+[ext_resource type="Script" uid="uid://dywy25nbjskfj" path="res://bullet_bomb.gd" id="1_xbysn"]
+[ext_resource type="Texture2D" uid="uid://owsphn5xumlt" path="res://Sprites/Bullet_F_bomb.png" id="2_xbysn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yu4ew"]
+radius = 22.0
+height = 120.0
+
+[node name="Bullet" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_xbysn")
+
+[node name="BulletP" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, 0)
+texture = ExtResource("2_xbysn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(10.385, 0)
+rotation = -3.1415927
+shape = SubResource("CapsuleShape2D_yu4ew")
