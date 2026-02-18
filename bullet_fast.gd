@@ -1,5 +1,5 @@
 extends CharacterBody2D
-class_name Bullet
+class_name Bullet_fast
 var pos:Vector2
 var rota:float
 var dir:float
@@ -13,7 +13,6 @@ func _ready():
 
 func _physics_process(_delta: float):
 	if global_position.y > 648 or global_position.y < 0 or global_position.x > 1152 or global_position.x < 0 :
-		print("freed")
 		queue_free()
 	velocity=Vector2(speed, 0).rotated(dir)
 	move_and_slide()

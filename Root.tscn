@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dnk8csewsx4i8"]
+[gd_scene load_steps=5 format=3 uid="uid://dnk8csewsx4i8"]
 
 [ext_resource type="Script" uid="uid://c3g0vjgb5o4kc" path="res://root.gd" id="1_170dk"]
 [ext_resource type="PackedScene" uid="uid://c3trvkb0srm2g" path="res://player.tscn" id="2_24d08"]
 [ext_resource type="PackedScene" uid="uid://buw45rmec8g0g" path="res://player_base.tscn" id="3_170dk"]
+[ext_resource type="Texture2D" uid="uid://doed6fb2a2510" path="res://Sprites/background.png" id="4_cwqeq"]
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_170dk")
@@ -72,10 +73,16 @@ grow_vertical = 2
 scale = Vector2(2.0070112, 3.5200827)
 text = "Wave Done"
 
-[node name="Sprite2D" parent="." instance=ExtResource("3_170dk")]
+[node name="P_base" parent="." instance=ExtResource("3_170dk")]
 z_index = -1
 position = Vector2(576, 324)
 scale = Vector2(5, 5)
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -5
+texture_filter = 1
+position = Vector2(576, 324)
+texture = ExtResource("4_cwqeq")
 
 [connection signal="player_deplected" from="Player" to="." method="_on_player_player_deplected"]
 [connection signal="timeout" from="GameOver/ColorRect/Label/Timer" to="." method="_on_timer_timeout"]
