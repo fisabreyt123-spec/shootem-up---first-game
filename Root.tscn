@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c3g0vjgb5o4kc" path="res://root.gd" id="1_170dk"]
 [ext_resource type="PackedScene" uid="uid://c3trvkb0srm2g" path="res://player.tscn" id="2_24d08"]
 [ext_resource type="PackedScene" uid="uid://buw45rmec8g0g" path="res://player_base.tscn" id="3_170dk"]
-[ext_resource type="Texture2D" uid="uid://doed6fb2a2510" path="res://Sprites/background.png" id="4_cwqeq"]
+[ext_resource type="Texture2D" uid="uid://uyyuw8veruhh" path="res://Sprites/background_5.png" id="4_cwqeq"]
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_170dk")
@@ -74,6 +74,7 @@ scale = Vector2(2.0070112, 3.5200827)
 text = "Wave Done"
 
 [node name="P_base" parent="." instance=ExtResource("3_170dk")]
+modulate = Color(0.8039216, 0.8039216, 0.8039216, 1)
 z_index = -1
 position = Vector2(576, 324)
 scale = Vector2(5, 5)
