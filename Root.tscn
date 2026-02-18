@@ -6,7 +6,6 @@
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_170dk")
-enemy_wave_limit = 100
 
 [node name="Player" parent="." instance=ExtResource("2_24d08")]
 position = Vector2(576, 324)
@@ -40,6 +39,10 @@ grow_vertical = 2
 scale = Vector2(2.0070112, 3.5200827)
 text = "Game Over"
 
+[node name="Timer" type="Timer" parent="GameOver/ColorRect/Label"]
+unique_name_in_owner = true
+wait_time = 5.0
+
 [node name="Stage Win" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -69,14 +72,10 @@ grow_vertical = 2
 scale = Vector2(2.0070112, 3.5200827)
 text = "Wave Done"
 
-[node name="Timer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 5.0
-
 [node name="Sprite2D" parent="." instance=ExtResource("3_170dk")]
 z_index = -1
 position = Vector2(576, 324)
 scale = Vector2(5, 5)
 
 [connection signal="player_deplected" from="Player" to="." method="_on_player_player_deplected"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="GameOver/ColorRect/Label/Timer" to="." method="_on_timer_timeout"]
